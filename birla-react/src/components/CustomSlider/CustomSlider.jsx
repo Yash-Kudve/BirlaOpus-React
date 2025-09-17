@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import "./CustomSlider.css";
+import img1 from "../../assets/images/sliderImg1.png"
+import img2 from "../../assets/images/sliderImg2.png"
+import img3 from "../../assets/images/sliderImg3.png"
 
 const slides = [
   {
-    img: "https://images.unsplash.com/photo-1586105251261-72a756497a11",
+    img: img1,
     title: "The Finest Lobbies",
     subtitle: "New inspirations for the heart of the home",
   },
   {
-    img: "https://images.unsplash.com/photo-1598300053650-8f56e99e5e1b",
+    img: img2,
     title: "Modern Living",
     subtitle: "Contemporary designs with timeless style",
   },
   {
-    img: "https://images.unsplash.com/photo-1622015663311-38aee2ad5cf7",
+    img: img3,
     title: "Nature Inspired",
     subtitle: "Bringing the outdoors inside your home",
   },
@@ -32,26 +35,46 @@ export default function CustomSlider() {
 
   return (
     <div className="slider-container">
+      {/* <h2 className="slider-title">
+        Inspirations & <span>Trends</span>
+      </h2>
+      <p className="slider-subtext">
+        Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
+      </p> */}
 
-      <div className="slider-box">
-        <img
-          src={slides[current].img}
-          alt={slides[current].title}
-          className="slider-image"
-        />
-        <div className="slider-caption">
-          <h3>{slides[current].title}</h3>
-          <p>{slides[current].subtitle}</p>
-        </div>
+      <div className="slider-wrapper">
+        {slides.map((slide, index) => {
+          let position = "nextSlide";
+
+          if (index === current) {
+            position = "activeSlide";
+          } else if (
+            index === current - 1 ||
+            (current === 0 && index === slides.length - 1)
+          ) {
+            position = "prevSlide";
+          }
+
+          return (
+            <div className={`slide ${position}`} key={index}>
+              <img src={slide.img} alt={slide.title} />
+              {position === "activeSlide" && (
+                <div className="caption">
+                  <h3>{slide.title}</h3>
+                  <p>{slide.subtitle}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <div className="slider-controls">
         <button onClick={prevSlide} className="nav-btn">
           ←
         </button>
-
         <button className="view-all-btn">View All</button>
-
         <button onClick={nextSlide} className="nav-btn">
           →
         </button>
