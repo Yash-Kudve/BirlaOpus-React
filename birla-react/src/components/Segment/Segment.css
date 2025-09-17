@@ -5,7 +5,6 @@
 .segment-section{
     display: flex;
     max-width: 1440px;
-    height: 260px;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -31,5 +30,13 @@
             color: #A7A7C2;
 
         }
+    }
+}
+
+@media (max-width:767px) {
+    .segment-section{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 }

@@ -6,39 +6,28 @@ import s5 from '../../assets/images/segment5.png'
 import s6 from '../../assets/images/segment6.png'
 import s7 from '../../assets/images/segment7.png'
 import './Segment.css';
+
+const segments = [
+    {img:s1, text:"Education"},
+    {img:s2, text:"Office"},
+    {img:s3, text:"Residential"},
+    {img:s4, text:"Infrastructure"},
+    {img:s5, text:"Retail/Commercial"},
+    {img:s6, text:"Healthcare"},
+    {img:s7, text:"Hospitality"},
+]
 const Segment = () => {
   return (
     <section className='segment-section'>
-    <div className="card-segment">
-        <img className='segment-img' src={s1} alt="" />
-        <p className='segment-txt'>Education</p>
-    </div>
-    <div className="card-segment">
-        <img className='segment-img' src={s2} alt="" />
-        <p className='segment-txt'>Office</p>
-    </div>
-    <div className="card-segment">
-        <img className='segment-img' src={s3} alt="" />
-        <p className='segment-txt'>Residential</p>
-    </div>
-    <div className="card-segment">
-        <img className='segment-img' src={s4} alt="" />
-        <p className='segment-txt'>Infrastructure</p>
-    </div>
-    <div className="card-segment">
-        <img className='segment-img' src={s5} alt="" />
-        <p className='segment-txt'>Retail/Commercial</p>
-    </div>
-    <div className="card-segment">
-        <img className='segment-img' src={s6} alt="" />
-        <p className='segment-txt'>Healthcare</p>
-    </div>
-    <div className="card-segment">
-        <img className='segment-img' src={s7} alt="" />
-        <p className='segment-txt'>Hospitality</p>
-    </div>
+        {segments.map((item,index)=>(
+            <div key={index} className="card-segment">
+                <img className='segment-img' src={item.img} alt={item.text} />
+                <p className='segment-txt'>{item.text}</p>
+            </div>
+        ))}
     </section>
+
   )
 }
 
-export default Segment
+export default Segment;
