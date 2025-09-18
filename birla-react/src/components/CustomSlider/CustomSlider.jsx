@@ -35,13 +35,6 @@ export default function CustomSlider() {
 
   return (
     <div className="slider-container">
-      {/* <h2 className="slider-title">
-        Inspirations & <span>Trends</span>
-      </h2>
-      <p className="slider-subtext">
-        Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-      </p> */}
 
       <div className="slider-wrapper">
         {slides.map((slide, index) => {
